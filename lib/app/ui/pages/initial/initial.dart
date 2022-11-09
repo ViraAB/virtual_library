@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../lang/translations.g.dart';
 import '../../resources/static_images.dart';
 import '../../routes/routes.dart';
 
@@ -15,9 +16,9 @@ class InitialPage extends StatelessWidget {
         automaticallyImplyLeading: false,
         elevation: 0,
         centerTitle: true,
-        title: const Text(
-          "Información",
-          style: TextStyle(
+        title: Text(
+          t.initial_page.information,
+          style: const TextStyle(
             fontSize: 20,
           ),
         ),
@@ -27,9 +28,9 @@ class InitialPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Spacer(),
-            const Text(
-              "¡Bienvenid@ a tu biblioteca virtual!",
-              style: TextStyle(
+            Text(
+              t.initial_page.welcome,
+              style: const TextStyle(
                 fontSize: 20,
               ),
               textAlign: TextAlign.center,
@@ -39,9 +40,9 @@ class InitialPage extends StatelessWidget {
               width: 30.w,
               color: const Color.fromARGB(255, 87, 151, 204),
               child: TextButton(
-                child: const Text(
-                  "Comenzar",
-                  style: TextStyle(
+                child: Text(
+                  t.initial_page.begin,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20,
                   ),

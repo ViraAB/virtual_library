@@ -5,8 +5,11 @@ import 'package:sizer/sizer.dart';
 
 import 'app/ui/routes/on_generate_routes.dart';
 import 'app/ui/routes/routes.dart';
+import 'lang/translations.g.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized(); // add this
+  LocaleSettings.useDeviceLocale();
   runApp(const MyApp());
 }
 
