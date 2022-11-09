@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../utils/get_user_information.dart';
@@ -8,8 +9,13 @@ class BoxDesignDateBirth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int yearOld =
-        DateTime.now().difference(UserInfo.dateOfBirth!).inDays ~/ 365;
+    int yearOld = 0;
+    String dateOfBirth = '';
+
+    if (UserInfo.dateOfBirth != null) {
+      yearOld = DateTime.now().difference(UserInfo.dateOfBirth!).inDays ~/ 365;
+      dateOfBirth = DateFormat.yMd().format(UserInfo.dateOfBirth!);
+    }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,9 +56,7 @@ class BoxDesignDateBirth extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    '${UserInfo.dateOfBirth!.day} -'
-                    '${UserInfo.dateOfBirth!.month}-'
-                    '${UserInfo.dateOfBirth!.year}',
+                    dateOfBirth,
                     style: TextStyle(fontSize: 14.sp),
                   ),
                 ),

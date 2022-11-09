@@ -45,6 +45,24 @@ class UserInfoPage extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
+          actions: [
+            Center(
+              child: TextButton(
+                onPressed: () => Navigator.pushNamed(
+                  context,
+                  Routes.homePage,
+                ),
+                child: const Text(
+                  'Skip',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
         body: SingleChildScrollView(
           child: Padding(

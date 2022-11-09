@@ -2,6 +2,7 @@ import 'package:books/app/ui/pages/profile/widgets/circle.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../routes/routes.dart';
 import '../../utils/get_user_information.dart';
 import 'widgets/design_date_birth.dart';
 
@@ -27,6 +28,21 @@ class ProfilePage extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: GestureDetector(
+              child: const Icon(
+                Icons.edit,
+                color: Colors.white,
+              ),
+              onTap: () => Navigator.pushNamed(
+                context,
+                Routes.datePage,
+              ),
+            ),
+          ),
+        ],
       ),
       body: Container(
         color: const Color.fromARGB(220, 238, 237, 237),
@@ -77,13 +93,13 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                     BoxDesign(
-                      title: 'Nombre',
-                      personInfo: UserInfo.name,
+                      title: 'Nombre(s)',
+                      personInfo: UserInfo.name ?? '',
                       icon: Icons.notes,
                     ),
                     BoxDesign(
-                      title: 'Apellido',
-                      personInfo: UserInfo.lastName,
+                      title: 'Apellidos',
+                      personInfo: UserInfo.lastName ?? '',
                       icon: Icons.notes,
                     ),
                     BoxDesign(
@@ -93,18 +109,18 @@ class ProfilePage extends StatelessWidget {
                     ),
                     BoxDesign(
                       title: 'Email',
-                      personInfo: UserInfo.email,
+                      personInfo: UserInfo.email ?? '',
                       icon: Icons.email,
                     ),
                     const BoxDesignDateBirth(),
                     BoxDesign(
                       title: 'Autor Favorito',
-                      personInfo: UserInfo.favoriteAuthor,
+                      personInfo: UserInfo.favoriteAuthor ?? '',
                       icon: Icons.person_outline_outlined,
                     ),
                     BoxDesign(
                       title: 'Genero',
-                      personInfo: UserInfo.gender,
+                      personInfo: UserInfo.gender ?? '',
                       icon: (UserInfo.gender == "Mujer")
                           ? Icons.woman_rounded
                           : (UserInfo.gender == "Hombre")
@@ -172,5 +188,3 @@ class BoxDesign extends StatelessWidget {
     );
   }
 }
-
-

@@ -28,6 +28,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   freezed_annotation: ^1.0.0
   http: ^0.13.4
+  intl: ^0.17.0
   sizer: ^2.0.15
   url_launcher: ^5.2.7
 

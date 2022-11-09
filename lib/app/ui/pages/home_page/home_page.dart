@@ -16,8 +16,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          HomeCubit()..loadBooksByAuthor(UserInfo.favoriteAuthor),
+      create: (context) => HomeCubit()
+        ..loadBooksByAuthor(UserInfo.favoriteAuthor ?? 'Gabriel'),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 98, 129, 127),
