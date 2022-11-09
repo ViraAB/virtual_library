@@ -3,7 +3,7 @@ import 'package:sizer/sizer.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../../model/details/details_book.dart';
+import '../../../../models/details/details_book.dart';
 
 class BookDetails extends StatelessWidget {
   final BookDetailsModel bookDetailsModel;

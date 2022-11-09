@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 
-import '../../../../model/book/book.dart';
-import '../../../../model/details/details_book.dart';
+import '../../../../models/book/book.dart';
+import '../../../../models/details/details_book.dart';
 import '../../../../request/user_request.dart';
 import 'state/state.dart';
 

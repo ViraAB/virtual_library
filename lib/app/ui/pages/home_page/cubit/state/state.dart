@@ -1,4 +1,4 @@
-import 'package:books/app/model/book/book.dart';
+import 'package:books/app/models/book/book.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'state.freezed.dart';
