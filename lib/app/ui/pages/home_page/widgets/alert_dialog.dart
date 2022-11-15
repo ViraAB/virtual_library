@@ -3,6 +3,7 @@ import 'package:sizer/sizer.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../../../lang/translations.g.dart';
 import '../../../../models/details/details_book.dart';
 
 class BookDetails extends StatelessWidget {
@@ -55,7 +56,7 @@ class BookDetails extends StatelessWidget {
                     maxLines: 6,
                   ),
                   SizedBox(height: 2.h),
-                  const TitleDetails(text: "Lugares sujetos"),
+                   TitleDetails(text: t.alert_dialog.subject_places),
                   SizedBox(height: 0.5.h),
                   if (subjectPlacesList.isNotEmpty)
                     ListView.builder(
@@ -73,7 +74,7 @@ class BookDetails extends StatelessWidget {
                       },
                     ),
                   SizedBox(height: 2.h),
-                  const TitleDetails(text: "Personas sujetas"),
+                   TitleDetails(text: t.alert_dialog.persons_subject),
                   SizedBox(height: 0.5.h),
                   if (subjectPeopleList.isNotEmpty)
                     ListView.builder(
@@ -91,7 +92,7 @@ class BookDetails extends StatelessWidget {
                       },
                     ),
                   SizedBox(height: 2.h),
-                  const TitleDetails(text: "Tiempos"),
+                   TitleDetails(text: t.alert_dialog.time),
                   SizedBox(height: 0.5.h),
                   if (subjectTimesList.isNotEmpty)
                     ListView.builder(
@@ -117,10 +118,10 @@ class BookDetails extends StatelessWidget {
                       height: 5.h,
                       width: 40.w,
                       color: const Color.fromARGB(255, 87, 151, 204),
-                      child: const Align(
+                      child:  Align(
                         alignment: Alignment.center,
                         child: Text(
-                          "Más Información",
+                          t.alert_dialog.more_information,
                           textAlign: TextAlign.center,
                         ),
                       ),

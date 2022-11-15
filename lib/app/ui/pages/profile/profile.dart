@@ -2,6 +2,7 @@ import 'package:books/app/ui/pages/profile/widgets/circle.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../lang/translations.g.dart';
 import '../../routes/routes.dart';
 import '../../utils/get_user_information.dart';
 import 'widgets/design_date_birth.dart';
@@ -16,7 +17,7 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 98, 129, 127),
         centerTitle: true,
         title: Text(
-          "Profile",
+          t.profile_page.profile,
           style: TextStyle(fontSize: 18.sp),
         ),
         leading: GestureDetector(
@@ -93,33 +94,33 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                     BoxDesign(
-                      title: 'Nombre(s)',
+                      title: t.general.name,
                       personInfo: UserInfo.name ?? '',
                       icon: Icons.notes,
                     ),
                     BoxDesign(
-                      title: 'Apellidos',
+                      title: t.general.last_name,
                       personInfo: UserInfo.lastName ?? '',
                       icon: Icons.notes,
                     ),
                     BoxDesign(
-                      title: 'Número de telefono',
+                      title: t.general.phone_number,
                       personInfo: UserInfo.phoneNumber.toString(),
                       icon: Icons.phone,
                     ),
                     BoxDesign(
-                      title: 'Email',
+                      title: t.general.email,
                       personInfo: UserInfo.email ?? '',
                       icon: Icons.email,
                     ),
                     const BoxDesignDateBirth(),
                     BoxDesign(
-                      title: 'Autor Favorito',
+                      title: t.general.favorite_author,
                       personInfo: UserInfo.favoriteAuthor ?? '',
                       icon: Icons.person_outline_outlined,
                     ),
                     BoxDesign(
-                      title: 'Genero',
+                      title: t.general.gender,
                       personInfo: UserInfo.gender ?? '',
                       icon: (UserInfo.gender == "Mujer")
                           ? Icons.woman_rounded

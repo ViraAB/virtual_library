@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../lang/translations.g.dart';
 import '../../routes/routes.dart';
 import '../../utils/validator_email.dart';
 import 'widgets/date_picker.dart';
@@ -30,9 +31,9 @@ class UserInfoPage extends StatelessWidget {
           backgroundColor: const Color.fromARGB(255, 98, 129, 127),
           elevation: 0,
           centerTitle: true,
-          title: const Text(
-            "Información Personal",
-            style: TextStyle(
+          title: Text(
+            t.user_info_page.personal_information,
+            style: const TextStyle(
               fontSize: 20,
             ),
           ),
@@ -52,9 +53,9 @@ class UserInfoPage extends StatelessWidget {
                   context,
                   Routes.homePage,
                 ),
-                child: const Text(
-                  'Skip',
-                  style: TextStyle(
+                child: Text(
+                  t.user_info_page.skip,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
@@ -69,10 +70,9 @@ class UserInfoPage extends StatelessWidget {
             padding: EdgeInsets.all(5.w),
             child: Column(
               children: [
-                const Text(
-                  "Antes de mostrarte la biblioteca virtual, "
-                  "nos gutaria saber un poco de ti:",
-                  style: TextStyle(
+                Text(
+                  t.user_info_page.more_info,
+                  style: const TextStyle(
                     fontSize: 20,
                   ),
                   textAlign: TextAlign.center,
@@ -81,8 +81,9 @@ class UserInfoPage extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                   child: TextFormField(
-                    validator: (value) => value!.isEmpty ? "Campo vacio" : null,
-                    decoration: inputDecoration(context, "Nombre"),
+                    validator: (value) =>
+                        value!.isEmpty ? t.user_info_page.empty_field : null,
+                    decoration: inputDecoration(context, t.general.name),
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(
                         RegExp(r"[a-zA-Z]"),
@@ -97,14 +98,16 @@ class UserInfoPage extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                   child: TextFormField(
-                    decoration: inputDecoration(context, "Apellidos"),
+                    decoration:
+                        inputDecoration(context, t.general.last_name),
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(
                         RegExp(r"[a-zA-Z ]"),
                       ),
                       LengthLimitingTextInputFormatter(30),
                     ],
-                    validator: (value) => value!.isEmpty ? "Campo vacio" : null,
+                    validator: (value) =>
+                        value!.isEmpty ? t.user_info_page.empty_field : null,
                     keyboardType: TextInputType.name,
                     controller: _lastNameController,
                   ),
@@ -113,14 +116,18 @@ class UserInfoPage extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                   child: TextFormField(
-                    decoration: inputDecoration(context, "Telefono"),
+                    decoration: inputDecoration(
+                      context,
+                      t.general.phone_number,
+                    ),
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(
                         RegExp(r"[0-9]"),
                       ),
                       LengthLimitingTextInputFormatter(10),
                     ],
-                    validator: (value) => value!.isEmpty ? "Campo vacio" : null,
+                    validator: (value) =>
+                        value!.isEmpty ? t.user_info_page.empty_field : null,
                     keyboardType: TextInputType.number,
                     controller: _phoneNumberController,
                   ),
@@ -129,15 +136,16 @@ class UserInfoPage extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                   child: TextFormField(
-                    decoration: inputDecoration(context, "email"),
+                    decoration:
+                        inputDecoration(context, t.general.email),
                     inputFormatters: [
                       FilteringTextInputFormatter.singleLineFormatter,
                     ],
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "Campo vacio";
+                        return t.user_info_page.empty_field;
                       } else if (!isValidEmail(value)) {
-                        return "Escribe un correo valido";
+                        return t.user_info_page.valid_email;
                       }
                       return null;
                     },
@@ -156,8 +164,12 @@ class UserInfoPage extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                   child: TextFormField(
-                    decoration: inputDecoration(context, "Autor favorito"),
-                    validator: (value) => value!.isEmpty ? "Campo vacio" : null,
+                    decoration: inputDecoration(
+                      context,
+                      t.general.favorite_author,
+                    ),
+                    validator: (value) =>
+                        value!.isEmpty ? t.user_info_page.empty_field : null,
                     controller: _authorController,
                   ),
                 ),
@@ -179,9 +191,9 @@ class UserInfoPage extends StatelessWidget {
             child: Builder(
               builder: (context) {
                 var textButton = TextButton(
-                  child: const Text(
-                    "Guardar",
-                    style: TextStyle(
+                  child: Text(
+                    t.user_info_page.save,
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                     ),
@@ -199,11 +211,11 @@ class UserInfoPage extends StatelessWidget {
                       );
                       if (_date.runtimeType == Null) {
                         context.showSnackbar(
-                          const Text("Ingresa tu fecha de nacimiento"),
+                          Text(t.user_info_page.date_of_birth),
                         );
                       } else if (_gender.isEmpty) {
                         context.showSnackbar(
-                          const Text("Seleccion alguna opcion de genero"),
+                          Text(t.user_info_page.select_gender),
                         );
                       } else {
                         Navigator.pushNamed(

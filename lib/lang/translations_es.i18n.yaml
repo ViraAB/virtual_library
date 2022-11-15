@@ -2,3 +2,43 @@ initial-page:
   information: Información
   welcome: ¡Bienvenid@ a tu biblioteca virtual!
   begin: Comenzar
+
+home-page:
+  title: Biblioteca Virtual
+  input-book-author: 'Ingresa el nombre del libro que deseas buscar o el nombre del autor:'
+  author: Autor
+  book: Libro
+  bad-query: Lo sentimos, tu consulta no nos arrojo ningún resultado.\n\nVuelve a intentarlo :D,
+
+alert-dialog:
+  subject-places: Lugares sujetos
+  persons-subject: Personas sujetas
+  time: Tiempos
+  more-information: Más Información
+
+user-info-page:
+  personal-information: Información personal
+  skip: Saltar
+  more-info: 'Antes de mostrarte la biblioteca virtual, nos gutaria saber un poco de ti:'
+  empty-field: Campo vacio
+  valid-email: Escribe un correo valido
+  save: Save
+  date-of-birth: Ingresa tu fecha de nacimiento
+  select-gender: Seleccion alguna opcion de genero
+  woman: Mujer
+  men: Hombre
+  omit: Omitir
+  birthday: Fecha de nacimiento
+
+profile-page:
+  profile: Perfil
+  years: Years
+  birth: Nacimiento
+
+general:
+  name: Nombre(s)
+  last-name: Apellidos
+  phone-number: Phone number
+  email: Email
+  favorite-author: Autor favorito
+  gender: Genero

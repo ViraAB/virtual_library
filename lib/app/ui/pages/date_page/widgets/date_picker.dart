@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../../lang/translations.g.dart';
+
 // ignore: must_be_immutable
 class DatePickerItem extends StatefulWidget {
   DatePickerItem(
@@ -75,7 +77,7 @@ class _DatePickerItemState extends State<DatePickerItem> {
               ),
             ),
             child: Text(
-              'Fecha de nacimiento',
+              t.user_info_page.birthday,
               style: TextStyle(
                 color: Colors.grey[700],
                 fontSize: 16,

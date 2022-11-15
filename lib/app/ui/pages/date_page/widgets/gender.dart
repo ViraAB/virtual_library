@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../../lang/translations.g.dart';
+
 enum GenderOptions { M, H, O }
 
 class Gender extends StatefulWidget {
@@ -40,7 +42,7 @@ class _GenderState extends State<Gender> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("Gender"),
+          Text(t.general.gender),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -57,7 +59,7 @@ class _GenderState extends State<Gender> {
                         });
                       },
                     ),
-                    const Expanded(child: Text('Mujer'))
+                    Expanded(child: Text(t.user_info_page.woman))
                   ],
                 ),
                 flex: 1,
@@ -75,7 +77,7 @@ class _GenderState extends State<Gender> {
                         });
                       },
                     ),
-                    const Expanded(child: Text('Hombre'))
+                    Expanded(child: Text(t.user_info_page.men))
                   ],
                 ),
                 flex: 1,
@@ -93,7 +95,7 @@ class _GenderState extends State<Gender> {
                         });
                       },
                     ),
-                    const Expanded(child: Text('Omitir'))
+                    Expanded(child: Text(t.user_info_page.omit))
                   ],
                 ),
                 flex: 1,

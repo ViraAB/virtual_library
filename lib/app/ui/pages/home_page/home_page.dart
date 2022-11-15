@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../lang/translations.g.dart';
 import '../../resources/static_images.dart';
 import '../../routes/routes.dart';
 import 'cubit/cubit.dart';
@@ -16,15 +17,15 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit()
-        ..loadBooksByAuthor(UserInfo.favoriteAuthor ?? 'Gabriel'),
+      create: (context) =>
+          HomeCubit()..loadBooksByAuthor(UserInfo.favoriteAuthor ?? 'Gabriel'),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 98, 129, 127),
           centerTitle: true,
           automaticallyImplyLeading: false,
           title: Text(
-            "Biblioteca Virtual",
+            t.home_page.title,
             style: TextStyle(fontSize: 18.sp),
           ),
           actions: <Widget>[
@@ -56,10 +57,9 @@ class HomePage extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(top: 8.w, left: 8.w, right: 8.w),
-                    child: const Text(
-                      "Ingresa el nombre del libro que deseas "
-                      "buscar o el nombre del autor:",
-                      style: TextStyle(
+                    child: Text(
+                      t.home_page.input_book_author,
+                      style: const TextStyle(
                         fontSize: 20,
                       ),
                       textAlign: TextAlign.center,

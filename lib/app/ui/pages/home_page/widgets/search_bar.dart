@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../../lang/translations.g.dart';
+
+enum SearchOption { book, author }
+
 class SearchBar extends StatelessWidget {
   const SearchBar({Key? key}) : super(key: key);
 
@@ -49,7 +53,7 @@ class SearchBar extends StatelessWidget {
             child: TextField(
               controller: _authorOrBookController,
               decoration: InputDecoration(
-                hintText: "Autor/Libro",
+                hintText: "${t.home_page.author}/${t.home_page.book}",
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(2.w),

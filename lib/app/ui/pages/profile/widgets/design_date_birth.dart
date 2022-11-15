@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../../lang/translations.g.dart';
 import '../../../utils/get_user_information.dart';
 
 class BoxDesignDateBirth extends StatelessWidget {
@@ -29,13 +30,13 @@ class BoxDesignDateBirth extends StatelessWidget {
             ),
             Expanded(
               child: Text(
-                "Nacimiento",
+                t.profile_page.birth,
                 style: TextStyle(fontSize: 16.sp),
               ),
             ),
             Expanded(
               child: Text(
-                "Años",
+                t.profile_page.years,
                 style: TextStyle(fontSize: 16.sp),
               ),
             ),

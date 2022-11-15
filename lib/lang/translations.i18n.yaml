@@ -2,3 +2,43 @@ initial-page:
   information: Information
   welcome: Welcome to your virtual library!
   begin: Begin
+
+home-page:
+  title: Virtual library
+  input-book-author: 'Enter the name of the book you want to search for or the name of the author:'
+  author: Author
+  book: Book
+  bad-query: Sorry, your query did not return any results.\n\nPlease try again :D
+
+alert-dialog:
+  subject-places: Subject places
+  persons-subject: Persons Subject
+  time: Time
+  more-information: More information
+
+user-info-page:
+  personal-information: Personal information
+  skip: Skip
+  more-info: 'Before showing you the virtual library, we would like to know a little about you:'
+  empty-field: Empty field
+  valid-email: Write a valid email
+  save: Guardar
+  date-of-birth: Enter your birthday
+  select-gender: Select any gender option
+  woman: Woman
+  men: Men
+  omit: Omit
+  birthday: Birthday
+
+profile-page:
+  profile: Profile
+  years: Años
+  birth: Birthday
+
+general:
+  name: Name(s)
+  last-name: Last name
+  phone-number: Número de télefono
+  email: Email
+  favorite-author: Favorite author
+  gender: Gender

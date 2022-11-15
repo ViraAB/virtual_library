@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../../lang/translations.g.dart';
 import '../../../resources/static_images.dart';
 import '../cubit/cubit.dart';
 import 'alert_dialog.dart';
@@ -71,12 +72,10 @@ class ListBooks extends StatelessWidget {
               height: 50.h,
               child: Column(
                 children: [
-                  const Text(
-                    "Lo sentimos, tu consulta no nos arrojo"
-                    " ningún resultado."
-                    "\n\nVuelve a intentarlo :D",
+                  Text(
+                    t.home_page.bad_query,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                     ),
                   ),
