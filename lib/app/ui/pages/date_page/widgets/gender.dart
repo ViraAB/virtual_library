@@ -3,12 +3,12 @@ import 'package:sizer/sizer.dart';
 
 import '../../../../../lang/translations.g.dart';
 
-enum GenderOptions { M, H, O }
+enum GenderOptions { W, M, O }
 
 class Gender extends StatefulWidget {
   const Gender({Key? key, required this.onChanged}) : super(key: key);
 
-  final ValueChanged<String> onChanged;
+  final ValueChanged<Enum> onChanged;
 
   @override
   State<Gender> createState() => _GenderState();
@@ -27,8 +27,8 @@ class _GenderState extends State<Gender> {
       final savedGender = tmp.first;
       if (savedGender.length == 1) {
         _gender = {
+          'W': GenderOptions.W,
           'M': GenderOptions.M,
-          'H': GenderOptions.H,
           'O': GenderOptions.O,
         }[tmp.first];
       }
@@ -50,16 +50,16 @@ class _GenderState extends State<Gender> {
                 child: Row(
                   children: [
                     Radio(
-                      value: GenderOptions.M,
+                      value: GenderOptions.W,
                       groupValue: _gender,
                       onChanged: (_) {
                         setState(() {
-                          _gender = GenderOptions.M;
-                          widget.onChanged("Mujer");
+                          _gender = GenderOptions.W;
+                          widget.onChanged(GenderOptions.W);
                         });
                       },
                     ),
-                    Expanded(child: Text(t.user_info_page.woman))
+                    Expanded(child: Text(t.general.woman))
                   ],
                 ),
                 flex: 1,
@@ -68,16 +68,16 @@ class _GenderState extends State<Gender> {
                 child: Row(
                   children: [
                     Radio(
-                      value: GenderOptions.H,
+                      value: GenderOptions.M,
                       groupValue: _gender,
                       onChanged: (_) {
                         setState(() {
-                          _gender = GenderOptions.H;
-                          widget.onChanged("Hombre");
+                          _gender = GenderOptions.M;
+                          widget.onChanged(GenderOptions.M);
                         });
                       },
                     ),
-                    Expanded(child: Text(t.user_info_page.men))
+                    Expanded(child: Text(t.general.men))
                   ],
                 ),
                 flex: 1,
@@ -91,11 +91,11 @@ class _GenderState extends State<Gender> {
                       onChanged: (_) {
                         setState(() {
                           _gender = GenderOptions.O;
-                          widget.onChanged("Omitir");
+                          widget.onChanged(GenderOptions.O);
                         });
                       },
                     ),
-                    Expanded(child: Text(t.user_info_page.omit))
+                    Expanded(child: Text(t.general.omit))
                   ],
                 ),
                 flex: 1,

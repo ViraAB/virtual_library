@@ -6,7 +6,7 @@ class UserInfo {
   static int? phoneNumber;
   static String? email;
   static DateTime? dateOfBirth;
-  static String? gender;
+  static Enum? gender;
   static String? favoriteAuthor;
 }
 

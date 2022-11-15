@@ -12,6 +12,19 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String _gender = '';
+    int enumIndex = UserInfo.gender!.index;
+    switch (enumIndex) {
+      case 0:
+        _gender = t.general.woman;
+        break;
+      case 1:
+        _gender = t.general.men;
+        break;
+      default:
+        _gender = t.general.omit;
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 98, 129, 127),
@@ -121,10 +134,10 @@ class ProfilePage extends StatelessWidget {
                     ),
                     BoxDesign(
                       title: t.general.gender,
-                      personInfo: UserInfo.gender ?? '',
-                      icon: (UserInfo.gender == "Mujer")
+                      personInfo: _gender,
+                      icon: (enumIndex == 0)
                           ? Icons.woman_rounded
-                          : (UserInfo.gender == "Hombre")
+                          : (enumIndex == 1)
                               ? Icons.man_outlined
                               : Icons.person_outline_outlined,
                     ),

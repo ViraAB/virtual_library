@@ -20,8 +20,9 @@ class UserInfoPage extends StatelessWidget {
     TextEditingController _phoneNumberController = TextEditingController();
     TextEditingController _emailController = TextEditingController();
     TextEditingController _authorController = TextEditingController();
-    String _gender = "";
+    Enum? _gender;
     DateTime? _date;
+    String emptyField = t.user_info_page.empty_field;
 
     DateTime date = DateTime.now();
 
@@ -81,8 +82,7 @@ class UserInfoPage extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                   child: TextFormField(
-                    validator: (value) =>
-                        value!.isEmpty ? t.user_info_page.empty_field : null,
+                    validator: (value) => value!.isEmpty ? emptyField : null,
                     decoration: inputDecoration(context, t.general.name),
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(
@@ -98,16 +98,14 @@ class UserInfoPage extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                   child: TextFormField(
-                    decoration:
-                        inputDecoration(context, t.general.last_name),
+                    decoration: inputDecoration(context, t.general.last_name),
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(
                         RegExp(r"[a-zA-Z ]"),
                       ),
                       LengthLimitingTextInputFormatter(30),
                     ],
-                    validator: (value) =>
-                        value!.isEmpty ? t.user_info_page.empty_field : null,
+                    validator: (value) => value!.isEmpty ? emptyField : null,
                     keyboardType: TextInputType.name,
                     controller: _lastNameController,
                   ),
@@ -126,8 +124,7 @@ class UserInfoPage extends StatelessWidget {
                       ),
                       LengthLimitingTextInputFormatter(10),
                     ],
-                    validator: (value) =>
-                        value!.isEmpty ? t.user_info_page.empty_field : null,
+                    validator: (value) => value!.isEmpty ? emptyField : null,
                     keyboardType: TextInputType.number,
                     controller: _phoneNumberController,
                   ),
@@ -136,14 +133,13 @@ class UserInfoPage extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                   child: TextFormField(
-                    decoration:
-                        inputDecoration(context, t.general.email),
+                    decoration: inputDecoration(context, t.general.email),
                     inputFormatters: [
                       FilteringTextInputFormatter.singleLineFormatter,
                     ],
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return t.user_info_page.empty_field;
+                        return emptyField;
                       } else if (!isValidEmail(value)) {
                         return t.user_info_page.valid_email;
                       }
@@ -168,14 +164,13 @@ class UserInfoPage extends StatelessWidget {
                       context,
                       t.general.favorite_author,
                     ),
-                    validator: (value) =>
-                        value!.isEmpty ? t.user_info_page.empty_field : null,
+                    validator: (value) => value!.isEmpty ? emptyField : null,
                     controller: _authorController,
                   ),
                 ),
                 const SizedBox(height: 10),
                 Gender(
-                  onChanged: (String genderValue) {
+                  onChanged: (genderValue) {
                     _gender = genderValue;
                   },
                 ),
@@ -186,8 +181,11 @@ class UserInfoPage extends StatelessWidget {
         bottomNavigationBar: Padding(
           padding: EdgeInsets.symmetric(vertical: 2.5.h, horizontal: 10.w),
           child: Container(
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 87, 151, 204),
+              borderRadius: BorderRadius.circular(3.w),
+            ),
             width: 30.w,
-            color: const Color.fromARGB(255, 87, 151, 204),
             child: Builder(
               builder: (context) {
                 var textButton = TextButton(
@@ -198,7 +196,7 @@ class UserInfoPage extends StatelessWidget {
                       fontSize: 20,
                     ),
                   ),
-                  onPressed: () async {
+                  onPressed: () {
                     if (Form.of(context)!.validate()) {
                       saveUpdateData(
                         _nameController.text,
@@ -209,11 +207,11 @@ class UserInfoPage extends StatelessWidget {
                         _gender,
                         _authorController.text,
                       );
-                      if (_date.runtimeType == Null) {
+                      if (_date == null) {
                         context.showSnackbar(
                           Text(t.user_info_page.date_of_birth),
                         );
-                      } else if (_gender.isEmpty) {
+                      } else if (_gender == null) {
                         context.showSnackbar(
                           Text(t.user_info_page.select_gender),
                         );

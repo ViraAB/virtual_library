@@ -22,23 +22,23 @@ user-info-page:
   more-info: 'Before showing you the virtual library, we would like to know a little about you:'
   empty-field: Empty field
   valid-email: Write a valid email
-  save: Guardar
+  save: Save
   date-of-birth: Enter your birthday
   select-gender: Select any gender option
-  woman: Woman
-  men: Men
-  omit: Omit
   birthday: Birthday
 
 profile-page:
   profile: Profile
-  years: Años
+  years: Years old
   birth: Birthday
 
 general:
   name: Name(s)
   last-name: Last name
-  phone-number: Número de télefono
+  phone-number: Phone number
   email: Email
   favorite-author: Favorite author
   gender: Gender
+  woman: Woman
+  men: Men
+  omit: Omit
