@@ -8,7 +8,8 @@ home-page:
   input-book-author: 'Ingresa el nombre del libro que deseas buscar o el nombre del autor:'
   author: Autor
   book: Libro
-  bad-query: Lo sentimos, tu consulta no nos arrojo ningún resultado.\n\nVuelve a intentarlo :D,
+  bad-query: Lo sentimos, tu consulta no nos arrojo ningún resultado.\n\nVuelve a intentarlo :D
+  error: Ingresa un autor o libro
 
 alert-dialog:
   subject-places: Lugares sujetos
@@ -20,7 +21,6 @@ user-info-page:
   personal-information: Información personal
   skip: Saltar
   more-info: 'Antes de mostrarte la biblioteca virtual, nos gutaria saber un poco de ti:'
-  empty-field: Campo vacio
   valid-email: Escribe un correo electrónico valido
   save: Guardar
   date-of-birth: Ingresa tu fecha de nacimiento
@@ -42,3 +42,4 @@ general:
   woman: Mujer
   men: Hombre
   omit: Omitir
+  empty-field: Campo vacio

@@ -9,6 +9,7 @@ home-page:
   author: Author
   book: Book
   bad-query: Sorry, your query did not return any results.\n\nPlease try again :D
+  error: Enter an author or book
 
 alert-dialog:
   subject-places: Subject places
@@ -20,7 +21,6 @@ user-info-page:
   personal-information: Personal information
   skip: Skip
   more-info: 'Before showing you the virtual library, we would like to know a little about you:'
-  empty-field: Empty field
   valid-email: Write a valid email
   save: Save
   date-of-birth: Enter your birthday
@@ -42,3 +42,4 @@ general:
   woman: Woman
   men: Men
   omit: Omit
+  empty-field: Empty field

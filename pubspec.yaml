@@ -32,6 +32,7 @@ dependencies:
   sizer: ^2.0.15
   slang: 3.0.0
   slang_flutter: 3.0.0
+  top_snackbar_flutter: ^3.0.0
   url_launcher: ^5.2.7
 
 dev_dependencies:

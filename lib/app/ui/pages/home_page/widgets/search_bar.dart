@@ -1,4 +1,6 @@
 import 'package:books/app/ui/pages/home_page/cubit/cubit.dart';
+import 'package:books/app/ui/pages/home_page/widgets/top_banner.dart';
+import 'package:books/app/ui/utils/build_context_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
@@ -39,7 +41,7 @@ class SearchBar extends StatelessWidget {
               onChanged: (String? newValue) {
                 searchByAuthorOrBook = newValue!;
               },
-              items: <String>['Autor', 'Libro']
+              items: <String>[t.home_page.author, t.home_page.book]
                   .map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
@@ -91,14 +93,26 @@ class SearchBar extends StatelessWidget {
                     ),
                     onPressed: () {
                       FocusManager.instance.primaryFocus?.unfocus();
-                      final homeCubit = context.read<HomeCubit>();
-                      if (searchByAuthorOrBook == "Autor") {
-                        homeCubit.loadBooksByAuthor(
-                          _authorOrBookController.text,
-                        );
+                      if (_authorOrBookController.text.isNotEmpty) {
+                        final homeCubit = context.read<HomeCubit>();
+                        if (searchByAuthorOrBook == "Autor") {
+                          homeCubit.loadBooksByAuthor(
+                            _authorOrBookController.text,
+                          );
+                        } else {
+                          homeCubit.loadBooksByBook(
+                            _authorOrBookController.text,
+                          );
+                        }
                       } else {
-                        homeCubit.loadBooksByBook(
-                          _authorOrBookController.text,
+                        context.showTopBanner(
+                          Dialog(
+                            child: TopBanner(
+                              label: t.home_page.error,
+                              backgroundColor: Colors.red,
+                              isError: true,
+                            ),
+                          ),
                         );
                       }
                     },

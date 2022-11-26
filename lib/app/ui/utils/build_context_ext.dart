@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 extension BuilbContextExt on BuildContext {
   ColorScheme get colorScheme {
@@ -18,6 +19,19 @@ extension BuilbContextExt on BuildContext {
         content: content,
         duration: duration,
       ),
+    );
+  }
+
+  void showTopBanner(
+    Widget content, {
+    Duration duration = const Duration(seconds: 1),
+    ControllerCallback? onAnimationControllerInit,
+  }) {
+    showTopSnackBar(
+      Overlay.of(this)!,
+      content,
+      displayDuration: duration,
+      onAnimationControllerInit: onAnimationControllerInit,
     );
   }
 }

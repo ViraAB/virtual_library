@@ -22,7 +22,7 @@ class UserInfoPage extends StatelessWidget {
     TextEditingController _authorController = TextEditingController();
     Enum? _gender;
     DateTime? _date;
-    String emptyField = t.user_info_page.empty_field;
+    String emptyField = t.general.empty_field;
 
     DateTime date = DateTime.now();
 

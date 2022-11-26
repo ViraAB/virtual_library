@@ -13,7 +13,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String _gender = '';
-    int enumIndex = UserInfo.gender!.index;
+    int enumIndex = UserInfo.gender?.index ?? 2;
     switch (enumIndex) {
       case 0:
         _gender = t.general.woman;
@@ -130,7 +130,7 @@ class ProfilePage extends StatelessWidget {
                     BoxDesign(
                       title: t.general.favorite_author,
                       personInfo: UserInfo.favoriteAuthor ?? '',
-                      icon: Icons.person_outline_outlined,
+                      icon: Icons.person,
                     ),
                     BoxDesign(
                       title: t.general.gender,
